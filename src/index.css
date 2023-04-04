@@ -1,13 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f1f1f1;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  background-color: #fff;
+  padding: 24px;
+  max-height: 460px;
+  overflow-y: scroll;
+  position: relative;
+  border-radius: 12px;
+}
+
+.completed {
+  margin-top: 24px;
+}
+
+.current-tasks,
+.completed-tasks {
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+}
+
+.complete {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 1px solid #bbdefb;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.complete::after {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #bbdefb;
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.current-tasks .complete:hover::after {
+  opacity: 1;
+}
+
+.current-tasks .complete::after {
+  opacity: 0;
+}
+
+.completed-tasks .complete::after {
+  opacity: 1;
+}
+
+.task-title {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.task-deadline {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.form-box {
+  position: sticky;
+  width: 100%;
+  bottom: -24px;
+  left: 0;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 24px;
 }
